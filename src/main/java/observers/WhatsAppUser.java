@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * clase.
  */
-public class RodrigoVillalobos implements User {
+public class WhatsAppUser implements User {
 
     /**
      * Lista de mensajes.

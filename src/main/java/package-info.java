@@ -1,0 +1,3 @@
+/**
+ * Packete conversación.
+ */

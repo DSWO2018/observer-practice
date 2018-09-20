@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Clase Grupo.
  */
-public class GrupoDisenoSoftware {
+public class WhatsAppGroup implements Grupo{
     /**
      * Usuarios.
      */
@@ -17,8 +17,6 @@ public class GrupoDisenoSoftware {
      * mensaje.
      */
     private String message;
-
-
 
     /**
      * @param usuario Nombre/Clave del usuario. Debe ser único.
