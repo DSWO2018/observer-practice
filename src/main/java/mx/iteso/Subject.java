@@ -2,7 +2,7 @@ package mx.iteso;
 
 public interface Subject {
 
-    public void registerObserver();
-    public void removeObserver();
+    public void registerObserver(Observer observer);
+    public void removeObserver(Observer observer);
     public void notifyObservers();
 }
