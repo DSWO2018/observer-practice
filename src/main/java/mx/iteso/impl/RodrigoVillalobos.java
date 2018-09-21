@@ -1,8 +1,11 @@
-package mx.iteso;
+package mx.iteso.impl;
+
+import mx.iteso.Observer;
 
 import java.util.ArrayList;
 
-public class RodrigoVillalobos {
+public class RodrigoVillalobos implements Observer {
+
     ArrayList<String> messages;
 
     public void getMessage(String message){
