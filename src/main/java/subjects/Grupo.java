@@ -13,11 +13,13 @@ public interface Grupo {
     void addUser(User usuario);
     /**
      * @param usuario Nombre/Clave del usuario. Debe ser único.
+     * @return s
      */
-    void removeUser(String usuario);
+    boolean removeUser(User usuario);
 
     /**
      * Metodo para mandar mensajes.
+     * @param message mensaje a enviar.
      */
-    void dispatchMessage();
+    void dispatchMessage(String message);
 }
