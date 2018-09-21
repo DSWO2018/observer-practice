@@ -53,13 +53,12 @@ public class WhatsAppUser implements User {
     /**
      * @return whether any messages were read.
      */
-    public boolean readMessagesAndClear() {
+    public final boolean readMessagesAndClear() {
         if (messages.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             System.out.println("Inbox de " + userName);
-            while (messages.size() > 0){
+            while (messages.size() > 0) {
                 System.out.println(messages.get(0));
                 messages.remove(0);
             }
@@ -89,11 +88,10 @@ public class WhatsAppUser implements User {
     /**
      * @return whether any messages were cleared.
      */
-    public boolean clearMessages(){
+    public final boolean clearMessages() {
         if (messages.isEmpty()) {
             return false;
-        }
-        else {
+        } else {
             messages.clear();
             return true;
         }

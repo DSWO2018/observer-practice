@@ -20,22 +20,22 @@ public class WhatsAppGroupTest {
 
     @Test
     public void addUser() {
-        when(u.getName()).thenReturn("Usuario de Prueba");
         g.addUser(u);
         // No hay assert equals porque regresa void
     }
 
     @Test
     public void dispatchMessages() {
-
+        g.addUser(u);
+        g.dispatchMessage("This test is kinda pointless");
+        // No hay assert equals porque regresa void
     }
 
 
     @Test
     public void removeUser() {
-        when(u.getName()).thenReturn("Usuario de Prueba");
+        g.addUser(u);
         assertEquals(true, g.removeUser(u));
-
         assertEquals(false, g.removeUser(u));
     }
 }
