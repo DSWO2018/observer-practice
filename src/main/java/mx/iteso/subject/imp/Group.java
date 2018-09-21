@@ -20,6 +20,7 @@ public class Group implements Subject {
         HashMap<String,ArrayList<String>> userGroups=  user.getGroups();
         userGroups.put(groupName,new ArrayList<String>());
         registerObserver(user);
+        notifyObservers("fue agregado.", user);
     }
 
 
