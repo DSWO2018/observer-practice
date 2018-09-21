@@ -2,7 +2,8 @@ package mx.iteso;
 
 import java.util.ArrayList;
 
-public class RodrigoVillalobos {
+public class RodrigoVillalobos implements Usuario{
+
     ArrayList<String> messages;
 
     public void getMessage(String message){
