@@ -5,31 +5,35 @@ import mx.iteso.Subject;
 
 import java.util.ArrayList;
 
+/**Clase subject grupo diseño de sw. */
 public class GrupoDisenoSoftware implements Subject {
+    /**ArrayList observers. */
     private final ArrayList observers;
-    String messages;
+    /**Sting msg. */
+    private String messages;
 
+    /**Constructor. */
     public GrupoDisenoSoftware() {
         observers = new ArrayList();
     }
-
-    public void registerObserver(Observer observer) {
+    /**@param observer . */
+    public final void registerObserver(final Observer observer) {
         observers.add(observer);
     }
-
-    public void removeObserver(Observer observer) {
-        observers.remove(observers.indexOf(observer));
+    /** @param observer . */
+    public final void removeObserver(final Observer observer) {
+        observers.remove(observer);
     }
-
-    public void notifyObservers() {
+    /**Método para notificar a los observadores. */
+    public final void notifyObservers() {
         for (Object observer1 : observers) {
             Observer observer = (Observer) observer1;
             observer.getMessage(messages);
         }
     }
-
-    public void setMessage(String messages){
-        this.messages = messages;
+    /**@param mssages . */
+    public final void setMessage(final String mssages) {
+        this.messages = mssages;
         notifyObservers();
     }
 }

@@ -2,27 +2,32 @@ package mx.iteso;
 
 import mx.iteso.impl.Equipo1;
 import mx.iteso.impl.GrupoDisenoSoftware;
-import mx.iteso.impl.memberObserver;
-
-public class NewGroup {
-    public static void main( String[] args){
+import mx.iteso.impl.MemberObserver;
+/**Clase para implementar. */
+final class NewGroup {
+    /**constuctor. */
+    private NewGroup() {
+    }
+    /**main @param args .*/
+    public static void main(final String[] args) {
         GrupoDisenoSoftware gds;
         gds = new GrupoDisenoSoftware();
 
         Equipo1 equipo1;
         equipo1 = new Equipo1();
 
-        Observer andrea = new memberObserver();
-        Observer pala = new memberObserver();
-        Observer joseLuis = new memberObserver();
-        Observer alan = new memberObserver();
-        Observer alex = new memberObserver();
-        Observer gabriel = new memberObserver();
-        Observer hiram = new memberObserver();
-        Observer manuel = new memberObserver();
-        Observer pedro = new memberObserver();
-        Observer josue = new memberObserver();
-        Observer rene = new memberObserver();
+        Observer andrea = new MemberObserver("andrea");
+        Observer pala = new MemberObserver("pala");
+        Observer joseLuis = new MemberObserver("joseLuis");
+        Observer alan = new MemberObserver("alan");
+        Observer alex = new MemberObserver("alex");
+        Observer gabriel = new MemberObserver("gabriel");
+        Observer hiram = new MemberObserver("hiram");
+        Observer manuel = new MemberObserver("manuel");
+        Observer pedro = new MemberObserver("pedro");
+        Observer josue = new MemberObserver("josue");
+        Observer rene = new MemberObserver("rene");
+        Observer rodrigo = new MemberObserver("Rodrigo");
 
         System.out.println("GRUPO DISEÑO DE SOFTWARE");
         gds.registerObserver(andrea);
@@ -47,6 +52,8 @@ public class NewGroup {
         gds.setMessage("Rene ha entrado al grupo");
         gds.registerObserver(pedro);
         gds.setMessage("Pedro ha entrado al grupo");
+        gds.registerObserver(rodrigo);
+        gds.setMessage("El profe ha entrado al grupo");
 
 
         gds.setMessage("Pala ha salido del grupo");
@@ -55,7 +62,7 @@ public class NewGroup {
         gds.removeObserver(joseLuis);
 
         gds.setMessage("Mensajes de Andrea: ");
-        ((memberObserver) andrea).readMessagesAndClear();
+        ((MemberObserver) andrea).readMessagesAndClear();
         System.out.println();
 
         gds.notifyObservers();
@@ -69,7 +76,7 @@ public class NewGroup {
         equipo1.registerObserver(rene);
 
         equipo1.setMessage("Hola equipo 1");
-       ((memberObserver) andrea).readMessagesAndClear();
+       ((MemberObserver) andrea).readMessagesAndClear();
 
 
     }
