@@ -1,14 +1,14 @@
 package mx.iteso.observer.imp;
 
+
 import mx.iteso.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class User implements Observer {
-    HashMap<String, ArrayList<String>> groups;
-    //ArrayList<String> messages;
-    String name;
+    private HashMap<String, ArrayList<String>> groups;
+    private String name;
 
     public HashMap<String, ArrayList<String>> getGroups() {
         return groups;
@@ -19,17 +19,16 @@ public class User implements Observer {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String namev) {
+        this.name = namev;
     }
 
     public User(String userName) {
-        groups = new HashMap<String, ArrayList<String>>();
-
-        this.name = userName;
+        setGroups(new HashMap<String, ArrayList<String>>());
+        setName(userName);
     }
 
     public boolean readMessagesAndClear(String group) {
@@ -75,19 +74,11 @@ public class User implements Observer {
         }
     }
 
-    public boolean sendMessage(String message, String group){
-        ArrayList groupMessage = groups.get(group);
-        if (groupMessage == null){
-            return false;
-        }
-        groupMessage.add(getName() + ": ");
-        return true;
-    }
 
-    public void scoreUpdate(String group, String massage, User user) {
+    public void scoreUpdate(String group, String massage) {
         ArrayList groupMessage = groups.get(group);
         if (groupMessage != null) {
-            groupMessage.add(user.getName() + ": " + massage);
+            groupMessage.add(massage);
         }
 
     }

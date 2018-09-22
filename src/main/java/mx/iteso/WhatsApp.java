@@ -28,38 +28,45 @@ public class WhatsApp {
 
 
 
-        ((Group)diseño).registerUsers((User)palafox);
-        ((Group)diseño).registerUsers((User)andrea);
-        ((Group)diseño).registerUsers((User)joseLuis);
-        ((Group)diseño).registerUsers((User)alan);
-        ((Group)diseño).registerUsers((User)alex);
-        ((Group)diseño).registerUsers((User)gabriel);
-        ((Group)diseño).registerUsers((User)manuel);
-        ((Group)diseño).registerUsers((User)pedro);
-        ((Group)diseño).registerUsers((User)josue);
-        ((Group)diseño).registerUsers((User)rene);
-        ((Group)diseño).registerUsers((User)hiram);
+        diseño.registerObserver(palafox);
+        diseño.registerObserver(alan);
+        diseño.registerObserver(alex);
+        diseño.registerObserver(andrea);
+        diseño.registerObserver(joseLuis);
+        diseño.registerObserver(gabriel);
+        diseño.registerObserver(manuel);
+        diseño.registerObserver(pedro);
+        diseño.registerObserver(josue);
+        diseño.registerObserver(rene);
+        diseño.registerObserver(hiram);
 
         diseño.notifyObservers("Holaaaaa a todos!!",(User)palafox);
         diseño.notifyObservers("queeeee?", (User)joseLuis);
         diseño.notifyObservers("jiji",(User)andrea);
 
 
-        ((Group)equipo1).registerUsers((User)joseLuis);
-        ((Group)equipo1).registerUsers((User)alex);
-        ((Group)equipo1).registerUsers((User)andrea);
-        ((Group)equipo1).registerUsers((User)josue);
-        ((Group)equipo1).registerUsers((User)rene);
-        ((Group)equipo1).registerUsers((User)palafox);
+       equipo1.registerObserver(joseLuis);
+       equipo1.registerObserver(alex);
+       equipo1.registerObserver(andrea);
+       equipo1.registerObserver(josue);
+       equipo1.registerObserver(rene);
+       equipo1.registerObserver(palafox);
 
 
         equipo1.notifyObservers("Holaaaaaa1:)",(User)andrea);
         equipo1.notifyObservers("Hola:)2",(User)palafox);
         equipo1.notifyObservers("Hola:)3",(User)joseLuis);
         equipo1.notifyObservers("Holaaaaaa:4)",(User)andrea);
-        ((User)palafox).readMessagesAndClear("Equipo 1");
-        ((User)palafox).readMessagesAndClear("Equipo 1");
-        ((User)andrea).readMessagesAndClear("Diseño de Software");
-        ((User)andrea).readMessagesAndClear("Equipo 1");
+
+        ((User)palafox).readMessagesAndClear(((Group)equipo1).getName());
+
+        ((Group)equipo1).
+        ((User)palafox).readMessagesAndClear(((Group)equipo1).getName());
+
+        ((User)andrea).readMessagesAndClear(((Group)diseño).getName());
+
+
+        ((User)andrea).readMessagesAndClear(((Group)equipo1).getName());
+
     }
 }

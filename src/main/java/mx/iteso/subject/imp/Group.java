@@ -8,34 +8,77 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Group implements Subject {
-    ArrayList<Observer> groupList;
-    String groupName;
+    private ArrayList<Observer> groupList;
+    private String name;
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "groupList=" + groupList +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    public ArrayList<Observer> getGroupList() {
+        return groupList;
+    }
+
+    public void setGroupList(ArrayList<Observer> groupList) {
+        this.groupList = groupList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Group(String name) {
-        this.groupList = new ArrayList();
-        this.groupName=name;
+        setGroupList(new ArrayList());
+        setName(name);
     }
 
-    public void registerUsers(User user){
-        HashMap<String,ArrayList<String>> userGroups=  user.getGroups();
-        userGroups.put(groupName,new ArrayList<String>());
-        registerObserver(user);
-        notifyObservers("fue agregado.", user);
-    }
 
 
     public void registerObserver(Observer observer) {
         groupList.add(observer);
+        try {
+            HashMap<String,ArrayList<String>> userGroups=  ((User)observer).getGroups();
+            String userName = ((User)observer).getName();
+            userGroups.put(getName(),new ArrayList<String>());
+            notifyObservers(userName+" fue agregado.", null);
+        }catch (Exception e){
+
+        }
     }
 
     public void removeObserver(Observer observer) {
+        for (Observer observers: groupList ) {
+            try{
+                String userName = ((User) observer).getName();
+                observers.scoreUpdate(getName(),userName + " fue eliminado.");
+
+            }catch (Exception e){
+
+            }
+
+        }
         groupList.remove(observer);
     }
 
 
-    public void notifyObservers(String massage, User user) {
+    public void notifyObservers(String massage, Observer observer) {
         for (Observer observers: groupList ) {
-            observers.scoreUpdate(groupName,massage,user);
+            try{
+               String userName = ((User) observer).getName();
+                observers.scoreUpdate(getName(),userName+": "+massage);
+
+            }catch (Exception e){
+                observers.scoreUpdate(getName(),massage);
+            }
+
         }
     }
 }
