@@ -10,6 +10,10 @@ public class RodrigoVillalobos implements Usuario{
         messages.add(message);
     }
 
+    public void sendMessage(String message) {
+
+    }
+
     public boolean readMessagesAndClear(){
         if(messages.isEmpty())
             return false;

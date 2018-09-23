@@ -24,7 +24,9 @@ public class GrupoDisenoSoftware implements Equipo {
         }
 
 
-        public void dispatchMessage() {
+
+
+    public final void dispatchMessage(final String mensajito) {
             for (Usuario usuario : usuarios) {
                 usuario.getMessage(this.message);
             }
