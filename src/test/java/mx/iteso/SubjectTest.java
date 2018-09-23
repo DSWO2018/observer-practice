@@ -32,6 +32,6 @@ public class SubjectTest {
 
     @Test
     public void testNotifyObservers() throws Exception {
-        when(mockedSubject.notifyObservers(mock(String.class), mockedObserver)).thenReturn(true);
+        when(mockedSubject.notifyObservers("", mockedObserver)).thenReturn(true);
     }
 }

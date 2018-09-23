@@ -23,6 +23,6 @@ public class ObserverTest {
 
     @Test
     public void testScoreUpdate()  {
-        when(mockedObserver.scoreUpdate(mock(String.class),mock(String.class))).thenReturn(true);
+        when(mockedObserver.scoreUpdate("","")).thenReturn(true);
     }
 }
