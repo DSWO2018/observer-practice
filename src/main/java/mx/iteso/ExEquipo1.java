@@ -2,9 +2,10 @@ package mx.iteso;
 
 import java.util.ArrayList;
 
-/**GrupoDiseñoSoftware Class.*/
-
-public class GrupoDisenoSoftware implements Subject {
+/**
+ * Created by Alan on 9/20/18.
+ */
+public class ExEquipo1 implements Subject {
     /**Var Observers.*/
     private ArrayList observers = new ArrayList<Observer>();
     /**Var estado.*/
@@ -36,5 +37,4 @@ public class GrupoDisenoSoftware implements Subject {
     public final ArrayList<String> getEstado() {
         return estado;
     }
-
 }

@@ -1,42 +1,54 @@
 package mx.iteso;
 
 import java.util.ArrayList;
-
-public class RodrigoVillalobos {
-    ArrayList<String> messages;
-
-    public void getMessage(String message){
+/**RodrigoVillalobos Member Class.*/
+public class RodrigoVillalobos implements Observer {
+    /**Var messages. */
+    private ArrayList<String> messages;
+    /**function update.
+     * @param pmessages .*/
+    public final void update(final ArrayList<String> pmessages) {
+        this.messages = pmessages;
+    }
+    /**function getmessage.
+     * @param message .*/
+    public final void getMessage(final String message) {
         messages.add(message);
     }
-
-    public boolean readMessagesAndClear(){
-        if(messages.isEmpty())
+    /**function readMessageAndClear.
+     * @return . */
+    public final boolean readMessagesAndClear() {
+        if (messages.isEmpty()) {
             return false;
-        else{
-            while(messages.size() > 0){
+        } else {
+            while ((messages.size() - 1) > 0) {
                 System.out.println(messages.get(messages.size()));
                 messages.remove(messages.size());
             }
             return true;
         }
     }
-    public boolean readMessagesAndKeep(){
-        if(messages.isEmpty())
+    /**function readMessagesAndKeep.
+     * @return .*/
+    public final boolean readMessagesAndKeep() {
+        if (messages.isEmpty()) {
             return false;
-        else{
+        } else {
             int temp = messages.size();
-            while( temp > 0){
+            while (temp > 0) {
                 System.out.println(messages.get(temp));
                 temp = temp - 1;
             }
             return true;
         }
     }
-    public boolean clearMessages(){
-        if(messages.isEmpty())
+    /**function clearMessages.
+     * @return .*/
+    public final boolean clearMessages() {
+        if (messages.isEmpty()) {
             return false;
-        else{
-            while(messages.size() > 0){
+        } else {
+            while (messages.size() > 0) {
                 messages.remove(messages.size());
             }
             return true;
