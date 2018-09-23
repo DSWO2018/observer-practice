@@ -42,19 +42,20 @@ public class Group implements Subject {
 
 
 
-    public void registerObserver(Observer observer) {
+    public boolean registerObserver(Observer observer) {
         groupList.add(observer);
         try {
             HashMap<String,ArrayList<String>> userGroups=  ((User)observer).getGroups();
             String userName = ((User)observer).getName();
             userGroups.put(getName(),new ArrayList<String>());
             notifyObservers(userName+" fue agregado.", null);
+            return true;
         }catch (Exception e){
-
+            return false;
         }
     }
 
-    public void removeObserver(Observer observer) {
+    public boolean removeObserver(Observer observer) {
         for (Observer observers: groupList ) {
             try{
                 String userName = ((User) observer).getName();
@@ -65,11 +66,12 @@ public class Group implements Subject {
             }
 
         }
-        groupList.remove(observer);
+        return groupList.remove(observer);
     }
 
 
-    public void notifyObservers(String massage, Observer observer) {
+    public boolean notifyObservers(String massage, Observer observer) {
+        boolean all = true;
         for (Observer observers: groupList ) {
             try{
                String userName = ((User) observer).getName();
@@ -77,8 +79,10 @@ public class Group implements Subject {
 
             }catch (Exception e){
                 observers.scoreUpdate(getName(),massage);
+                all= false;
             }
 
         }
+        return all;
     }
 }

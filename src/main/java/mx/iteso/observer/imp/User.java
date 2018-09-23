@@ -75,11 +75,13 @@ public class User implements Observer {
     }
 
 
-    public void scoreUpdate(String group, String massage) {
+    public boolean scoreUpdate(String group, String massage) {
         ArrayList groupMessage = groups.get(group);
         if (groupMessage != null) {
             groupMessage.add(massage);
-        }
+            return true;
 
+        }
+        return false;
     }
 }

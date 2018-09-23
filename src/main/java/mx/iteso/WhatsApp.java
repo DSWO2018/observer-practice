@@ -60,7 +60,6 @@ public class WhatsApp {
 
         ((User)palafox).readMessagesAndClear(((Group)equipo1).getName());
 
-        ((Group)equipo1).
         ((User)palafox).readMessagesAndClear(((Group)equipo1).getName());
 
         ((User)andrea).readMessagesAndClear(((Group)diseño).getName());
